@@ -1,0 +1,19 @@
+# Project Configuration
+project_id            = "your_project_id"
+region                = "asia-south1"
+
+# Cloud Run Configuration
+cloudrun_sa_name      = "springboot-cloudrun-sa"
+cloud_run_service_name = "springboot-cloud-run"
+
+# Database Configuration
+db_name               = "studentdb"
+db_user               = "postgres"
+db_password           = "your-secure-password-here" # Change to a real password
+db_password_secret_id = "db-password"
+db_instance_name      = "postgres-instance"
+
+# GitHub Configuration (for Cloud Build trigger)
+github_owner          = "Ashish080"
+github_repo           = "springboot_gcp"
+github_branch           = "main"
