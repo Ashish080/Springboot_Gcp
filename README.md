@@ -23,11 +23,11 @@ Edit the `terraform.tfvars` file:
 project_id   = "your-gcp-project-id"
 region  = "your-gcp-project-region"
 ```
-open the `application.prop`
+open the `application.properties`
 
 ```bash
 cd src/main/resources
-vim application.prop
+vim application.properties
 ```
 ```hcl
 spring.cloud.gcp.sql.database-name=studentdb
@@ -87,11 +87,4 @@ Before running Cloud run, ensure your Docker image is ready.
 gcloud builds submit --config=cloudbuild.yaml
 ```
 ---
-### 8. 
 
-## ⚠️ Important Notes
-
-- Don’t forget to update the `application.properties` file with the correct environment variables; otherwise, the application may throw errors.
-- Ensure the IAM roles are correctly assigned to your service accounts (Cloud Build, Compute, etc.).
-
----
