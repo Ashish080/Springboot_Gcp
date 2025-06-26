@@ -33,6 +33,8 @@ resource "google_cloud_run_service_iam_member" "public_invoker" {
   service  = google_cloud_run_service.springboot.name
   role     = "roles/run.invoker"
   member   = "allUsers"
+  depends_on = [google_cloud_run_service.springboot]
+
 }
 
 
@@ -84,10 +86,6 @@ resource "google_secret_manager_secret_iam_member" "db_password_access" {
   member    = "serviceAccount:${google_service_account.cloud_run_sa.email}"
 }
 
-
-
-
-
 resource "google_sql_database_instance" "postgres_instance" {
   name             = "postgres-instance"
   database_version = "POSTGRES_15"
@@ -97,7 +95,7 @@ resource "google_sql_database_instance" "postgres_instance" {
     tier = "db-f1-micro"
   }
 
-  # deletion_protection = false  # ✅ Required for deletion
+  # deletion_protection = false
 }
 
 
@@ -181,4 +179,3 @@ resource "google_cloudbuild_trigger" "manual_trigger" {
     google_project_service.required_services
   ]
 }
-
