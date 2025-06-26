@@ -23,6 +23,24 @@ Edit the `terraform.tfvars` file:
 project_id   = "your-gcp-project-id"
 region  = "your-gcp-project-region"
 ```
+open the `application.prop`
+
+```bash
+cd src/main/resources
+vim application.prop
+```
+```hcl
+spring.cloud.gcp.sql.database-name=studentdb
+spring.cloud.gcp.sql.instance-connection-name=<your-gcp-project-id>:<your-gcp-project-region>:postgres-instance
+spring.cloud.gcp.project-id=your-gcp-project-id
+
+spring.datasource.username=postgres
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
+
+spring.sql.init.mode=always
+server.error.include-message=always
+server.port=${PORT:8080}
+```
 
 ### 3. Navigate to the Terraform Directory
 
@@ -68,9 +86,8 @@ Before running Cloud run, ensure your Docker image is ready.
 ```bash
 gcloud builds submit --config=cloudbuild.yaml
 ```
-
 ---
-
+### 8. 
 
 ## ⚠️ Important Notes
 
