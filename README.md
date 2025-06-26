@@ -5,8 +5,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/Ashish080/Springboot_Gcp.git
+cd Springboot_Gcp
 ```
 
 ### 2. Prepare Terraform Variables
@@ -22,6 +22,7 @@ Edit the `terraform.tfvars` file:
 ```hcl
 project_id   = "your-gcp-project-id"
 region  = "your-gcp-project-region"
+
 ```
 open the `application.properties`
 
